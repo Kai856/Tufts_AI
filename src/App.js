@@ -7,7 +7,7 @@ import jumbo from './pngegg.png';
 import sendButton from './pngegg (1).png';
 
 // Access the API key from environment variables
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 // TypingEffect Component
 const TypingEffect = ({ message, onComplete }) => {
@@ -73,42 +73,44 @@ const App = () => {
     const newUserMessage = { author: sender, text: trimmedText, typingCompleted: false };
     setMessages((prevMessages) => [...prevMessages, newUserMessage]);
 
-    const queryWithContext = `${trimmedText}. Do not fabricate anything. No info that is not related to Tufts. Know that every question is about Tufts.`;
-
     const requestBody = {
-      model: 'gpt-3.5-turbo',
-      messages: [...messages, { author: 'user', text: queryWithContext }].map((msg) => ({
-        role: msg.author === 'user' ? 'user' : 'system',
-        content: msg.text,
-      })),
+        model: 'gpt-3.5-turbo',
+        messages: [...messages, { author: 'user', text: trimmedText }].map((msg) => ({
+            role: msg.author === 'user' ? 'user' : 'system',
+            content: msg.text,
+        })),
     };
 
+    console.log("Authorization Header:", `Bearer ${API_KEY}`); // Debugging line
+
     try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${API_KEY}`,
-      },
-      body: JSON.stringify(requestBody),
-    });
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${API_KEY}`,
+            },
+            body: JSON.stringify(requestBody),
+        });
 
+        if (!response.ok) {
+            const errorResponse = await response.text(); // Fetch complete error response
+            console.error('API Response Error:', errorResponse); // Log complete error response
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-      if (response.ok) {
         const data = await response.json();
         const aiResponse = { author: 'ai', text: data.choices[0].message.content, typingCompleted: false };
         setMessages((prevMessages) => [...prevMessages, aiResponse]);
-      } else {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
     } catch (error) {
-      console.error('Error sending message:', error);
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { author: 'ai', text: "I'm having trouble connecting to the server. Please try again later.", typingCompleted: true },
-      ]);
+        console.error('Error sending message:', error);
+        setMessages((prevMessages) => [
+            ...prevMessages,
+            { author: 'ai', text: "I'm having trouble connecting to the server. Please try again later.", typingCompleted: true },
+        ]);
     }
-  };
+};
+
 
   const handleSendMessage = (query) => {
     sendMessage(query, 'user');
