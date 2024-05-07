@@ -7,7 +7,7 @@ import jumbo from './pngegg.png';
 import sendButton from './pngegg (1).png';
 
 // Access the API key from environment variables
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = process.env.API_KEY;
 
 // TypingEffect Component
 const TypingEffect = ({ message, onComplete }) => {
