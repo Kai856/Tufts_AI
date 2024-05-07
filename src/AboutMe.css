@@ -1,0 +1,28 @@
+/* AboutMe.css */
+
+.about-page {
+    background-color: #2C2C2E; /* Uniform dark gray background */
+    color: #FFFFFF; /* White text for better contrast */
+    padding: 40px 20px;
+    height: 110vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-start; /* Align content to the top */
+    padding-top: 80px; /* Add padding at the top to push content down slightly */
+}
+
+.about-container {
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto; /* Auto margins for horizontal centering */
+}
+
+.about-heading {
+    font-size: 36px;
+    margin-bottom: 20px; /* Fixed missing 'px' */
+}
+
+.about-content {
+    font-size: 18px;
+    line-height: 1.6;
+}
