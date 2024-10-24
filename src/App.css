@@ -1,4 +1,4 @@
-App;:root {
+:root {
   --background-color: #ffffff;
   --user-message-color: #F0F0F0;
   --ai-message-color: #E0E0E0;
@@ -16,7 +16,6 @@ App;:root {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #2C2C2E;
   color: #FFFFFF;
   font-family: 'Arial, sans-serif';
   margin: 0;
@@ -25,44 +24,22 @@ App;:root {
   position: relative;
 }
 
-
 .top-banner {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 1rem; /* Or whatever size you prefer */
-  background-color: #3A3A3C; /* A natural step up from the main background */
-  color: #ffffff; /* Keep the text white for contrast */
+  font-size: 1rem;
+  background-color: #3A3A3C;
+  color: #ffffff;
   padding: 15px 0;
   text-align: center;
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 999;
-  /* Add any other styling you need */
 }
 
 .top-banner a {
-  color: #3E8EDE; /* The desired blue color for "Learn more" */
-  text-decoration: none; /* Optional: removes the underline from links */
-}
-
-.jumboAI {
-  /* If you had position:absolute here, remove it */
-  padding: 1rem;
-  font-size: 1.5rem;
   color: #3E8EDE;
-}
-.jumbo-logo-container {
-  position: relative; /* Adjust if needed - or remove if using flexbox */
-  z-index: 10; /* Ensure logo overlays any elements below if necessary */
-}
-
-.greeting {
-  font-size: 4rem;
-  font-weight: bold;
-  color: #3F51B5;
-  margin: 0;
-  margin-bottom: 1rem;
-  /* Remove position:absolute if it exists */
+  text-decoration: none;
 }
 
 .header {
@@ -71,7 +48,6 @@ App;:root {
   color: #3E8EDE;
   margin: 0;
   margin-bottom: 2rem;
-  /* Remove position:absolute if it exists */
 }
 
 .button-group {
@@ -82,256 +58,116 @@ App;:root {
   width: 100%;
   max-width: 700px;
   text-align: center;
-  margin-left: 30px; /* Adjust the value to move the boxes to the right */
-  margin-top: 35vh;
-
 }
 
 .button {
-  background-color: #2C2C2E; /* A darker gray that fits the theme */
-  color: #FFFFFF; /* White text for readability */
-  border: 1px solid #525252; /* A slightly lighter border for subtle contrast */
+  background-color: #2C2C2E;
+  color: #FFFFFF;
+  border: 1px solid #525252;
   padding: 1rem;
   border-radius: 0.8rem;
   text-align: left;
   font-size: 1rem;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  opacity: 0; /* Initially hide the buttons */
+  opacity: 0;
   animation: fadeInUp 0.5s ease-out forwards;
-
 }
 
-.button:nth-of-type(1) {
-  animation-delay: 0.1s; /* Delay for the first button */
-}
-
-.button:nth-of-type(2) {
-  animation-delay: 0.2s; /* Delay for the second button */
-}
-
-.button:nth-of-type(3) {
-  animation-delay: 0.3s; /* Delay for the third button */
-}
-
-.button:nth-of-type(4) {
-  animation-delay: 0.4s; /* Delay for the fourth button */
-}
+.button:nth-of-type(1) { animation-delay: 0.1s; }
+.button:nth-of-type(2) { animation-delay: 0.2s; }
+.button:nth-of-type(3) { animation-delay: 0.3s; }
+.button:nth-of-type(4) { animation-delay: 0.4s; }
 
 .button:hover {
-  transform: scale(1); /* For a subtle grow effect on hover */
-  background-color: #444444; /* Slightly lighter background on hover */
+  transform: scale(1.05);
+  background-color: #444444;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
 .input-box-container {
   position: fixed;
-  bottom: 3vh; /* Raise the search box higher by reducing the bottom value */
+  bottom: 3vh;
   left: 50%;
   transform: translateX(-50%);
   width: 45%;
   max-width: none;
 }
 
-
-
 .input-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #2C2C2E; /* Match the background color */
-  padding: 0.5rem 1rem; /* Reduced vertical padding to make the bar less tall */
+  background-color: #2C2C2E;
+  padding: 0.5rem 1rem;
   border-radius: 22px;
   width: 100%;
-  border: 1px solid #706f6f; /* White border as requested */
+  border: 1px solid #706f6f;
 }
 
 .input {
   flex: 1;
   background-color: transparent;
   border: none;
-  color: #E0E0E0; /* Light text color for high contrast */
+  color: #E0E0E0;
   margin-right: 1rem;
   font-size: 1rem;
   outline: none;
 }
 
 .send-button {
-  background-color: transparent; /* Circle is invisible initially */
+  background-color: transparent;
   border: none;
-  color: #3E8EDE; /* Light purple color for the icon/text */
-  width: 3rem; /* Width and height should be the same for a perfect circle */
-  height: 45px;
+  color: #3E8EDE;
+  width: 3rem;
+  height: 3rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the icon horizontally and vertically */
-  padding: 0.5rem; /* Padding should be enough to fit the circle */
-  font-size: 2rem; /* Adjust size as needed for the icon */
-  border-radius: 50%; /* Ready for a circular shape on hover */
-  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for background and transform */
-  position: relative; /* To position the hover effect absolutely within */
-  overflow: hidden; /* Prevents the hover background from spilling out */
-}
-
-.send-button::before {
-  content: '';
-  background-color: #333; /* Dark background for the hover effect */
+  justify-content: center;
+  font-size: 2rem;
   border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0); /* Starts scaled down to zero */
-  width: 100%;
-  height: 100%;
-  transition: transform 0.3s, background-color 0.3s; /* Smooth transition for transform */
-  z-index: -1;
-}
-
-.send-button:hover {
-  background-color: #444; /* Slightly lighter color on hover */
-  transform: scale(1.1); /* The button grows a bit on hover */
-}
-
-.send-button > svg {
-  width: 1.5rem; /* Icon width */
-  height: 1.5rem; /* Icon height */
-  z-index: 1; /* Ensures the icon is above the pseudo-element */
+  position: relative;
+  overflow: hidden;
 }
 
 .top-left-logo {
   position: absolute;
-  top: 3.5rem; /* Adjust if needed to ensure the logo sits below the top banner */
-  left: 1rem; /* Left padding from the edge of the screen */
-  z-index: 1000; /* Ensure it sits above other page elements */
-  
+  top: 3.5rem;
+  left: 1rem;
+  z-index: 1000;
 }
 
 .top-left-logo img {
-  max-width: 100px; /* Decreased size of the logo */
-  height: auto; /* Maintain the aspect ratio of the logo */
+  max-width: 100px;
+  height: auto;
 }
-
-.tufts-logo {
-  max-width: 150px; /* Adjust based on your preference */
-  height: auto; /* This will maintain the aspect ratio */
-}
-
-.top-left-logo { order: 2; } 
-.button-group { order: 1; } 
-
 
 .message {
   display: flex;
-  align-items: center; /* Ensures vertical alignment is centered */
-  gap: 10px; /* Provides some space between the logo and the text */
-}
-
-.message-text {
-  flex: 1; /* Allows text to fill the remaining space */
-  color: var(--text-color); /* Using your root variable for text color */
-  margin: 0; /* Resets any default margins */
-}
-
-
-.user-indicator {
-  width: 20px; 
-  height: 20px;  
-  border-radius: 50%; 
-  background-color: #cccccc; 
-  margin-right: 5px;  /* Adjust margin as needed */
-  margin-top: 5px;  /* Add margin-top to move up */
-  margin-left: 10px; /* Add margin-left to move left */
-}
-
-.gpt-indicator {
-  width: 30px;
-  height: 30px;
-  margin-left: 5px;  /* Adjust margin as needed */
-  margin-top: 5px;  /* Add margin-top to move up */
-  display: inline-block; /* Not strictly necessary with Flexbox */
-}
-
-.gpt-indicator img {
-  width: 100%;
-  height: 100%;
-}
-
-.message.user, .message.ai {
-  background: transparent;
-  font-size: 1.1rem; /* Adjust font size here */
+  align-items: center;
+  gap: 10px;
 }
 
 .chat-active .message-container {
-  overflow-y: auto; /* This allows the container to scroll */
+  overflow-y: auto;
   width: 100%;
-  max-width: 600px; /* Adjust width as needed */
-  margin: 0 auto; /* Center the container */
-  overflow-y: auto; /* Allow scrolling */
-  height: calc(100vh - 120px); /* Adjust height as needed */
-  padding-top: 100px; /* Adjust this value to move messages down */
-  padding-bottom: 80px; /* Space for input box */
+  max-width: 600px;
+  margin: 0 auto;
+  height: calc(100vh - 120px);
+  padding-top: 100px;
+  padding-bottom: 80px;
 }
 
 .chat-active .message {
-  background-color: #333; /* Example message bubble color */
-  color: white; /* Example message text color */
-  padding: 8px 16px; /* Padding inside message bubbles */
-  border-radius: 18px; /* Rounded corners for message bubbles */
+  background-color: #333;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 18px;
   margin: 10px;
-  /* Additional styles for message bubbles */
-}
-
-.chat-active .input-box-container {
-  width: 100%;
-  max-width: 600px; /* Match the width of the message container */
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px;
-  background-color: #2C2C2E; /* Example background color */
-}
-.avatar, .gpt-indicator img {
-  width: 30px; 
-  height: auto; 
-  margin-right: 10px; 
-}
-
-.chat-elephant-icon {
-  height: 20px; /* Adjust to fit your design */
-  width: auto; /* Maintain aspect ratio */
-  margin-right: 8px; /* Space between icon and text */
-  align-self: center; /* Align vertically */
-}
-
-
-
-
-
-
-.colored-text {
-  color: #E0E0E0; /* Light text color for high contrast */
-}
-
-.colored-text.blue {
-  color: #3E8EDE; /* Light purple color for accent */
-}
-
-.colored-text.purple {
-  color: #3E8EDE; /* Change the class color to blue */
-}
-
-.colored-text.red {
-  color: #FF4081; /* Pinkish-red for contrast */
 }
