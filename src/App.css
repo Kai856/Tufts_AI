@@ -210,7 +210,7 @@
 }
 
 .jumbo-elephant {
-  width: 100px; 
+  width: 200px; 
   height: auto; /* Maintain aspect ratio */
   margin: 2rem 0; /* Adjust margin to control spacing */
   display: block; /* Ensure it's a block-level element */
