@@ -20,7 +20,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Start positioning elements from the top */
   min-height: 100vh;
   font-family: 'Arial, sans-serif';
   padding: 0 1rem;
@@ -46,18 +46,13 @@ html, body {
   text-decoration: none;
 }
 
-.greeting, .header {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 0;
-  margin-bottom: 1rem;
-  color: #3F51B5;
-  text-align: center;
-}
-
 .header {
+  font-size: 2.5rem;
   font-family: 'Times New Roman', Times, serif;
   color: #3E8EDE;
+  margin-top: 15vh; /* Adds space to lower the header */
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .button-group {
@@ -66,10 +61,8 @@ html, body {
   gap: 1rem;
   width: 100%;
   max-width: 700px;
+  margin-top: 5vh; /* Proper margin to bring buttons higher */
   text-align: center;
-  margin-top: 10vh;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .button {
@@ -85,35 +78,14 @@ html, body {
   animation: fadeInUp 0.5s ease-out forwards;
 }
 
-@media (max-width: 768px) {
-  .button-group {
-    grid-template-columns: 1fr;
-    margin-top: 5vh;
-  }
-  .header {
-    font-size: 1.5rem;
-  }
-}
-
 .message-container {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  height: calc(100vh - 180px);
+  height: calc(100vh - 250px); /* Adjust height to fit all elements comfortably */
   overflow-y: auto;
   padding-top: 50px;
   padding-bottom: 100px;
-}
-
-.message {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #333;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 18px;
-  margin: 10px;
 }
 
 .input-box-container {
@@ -186,6 +158,6 @@ html, body {
 }
 
 .top-left-logo img {
-  max-width: 100px;
+  max-width: 125px; /* Restore logo size */
   height: auto;
 }
