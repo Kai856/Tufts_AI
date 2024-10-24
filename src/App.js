@@ -130,7 +130,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="top-left-logo" onClick={() => window.location.reload()}>
-        <img src={tuftsLogo} alt="Tufts University" style={{ cursor: 'pointer', position: 'fixed', top: '60px', left: '25px', maxWidth: '125px', height: 'auto', zIndex: 1000 }} />
+        <img src={tuftsLogo} alt="Tufts University" className="tufts-logo" />
       </div>
       <div className="top-banner">
         Welcome to JumboAI, our latest AI model. <Link to="/about-me">Learn more.</Link>
@@ -215,7 +215,7 @@ const App = () => {
                   }}
                 />
                 <button className="send-button" onClick={() => handleSendMessage(inputMessage)}>
-                  <img src={sendButton} alt="Send" style={{ maxWidth: '20px', height: 'auto' }} />
+                  <img src={sendButton} alt="Send" />
                 </button>
               </div>
             </div>
