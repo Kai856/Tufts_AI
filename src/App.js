@@ -74,42 +74,42 @@ const App = () => {
     setMessages((prevMessages) => [...prevMessages, newUserMessage]);
 
     const requestBody = {
-        model: 'gpt-3.5-turbo',
-        messages: [...messages, { author: 'user', text: trimmedText }].map((msg) => ({
-            role: msg.author === 'user' ? 'user' : 'system',
-            content: msg.text,
-        })),
+      model: 'gpt-3.5-turbo',
+      messages: [...messages, { author: 'user', text: trimmedText }].map((msg) => ({
+        role: msg.author === 'user' ? 'user' : 'system',
+        content: msg.text,
+      })),
     };
 
-    console.log("Authorization Header:", `Bearer ${API_KEY}`); // Debugging line
+    console.log(`Authorization Header: Bearer ${API_KEY}`); // Debugging line
 
     try {
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${API_KEY}`,
-            },
-            body: JSON.stringify(requestBody),
-        });
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${API_KEY}`,
+        },
+        body: JSON.stringify(requestBody),
+      });
 
-        if (!response.ok) {
-            const errorResponse = await response.text(); // Fetch complete error response
-            console.error('API Response Error:', errorResponse); // Log complete error response
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+      if (!response.ok) {
+        const errorResponse = await response.text(); // Fetch complete error response
+        console.error('API Response Error:', errorResponse); // Log complete error response
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-        const data = await response.json();
-        const aiResponse = { author: 'ai', text: data.choices[0].message.content, typingCompleted: false };
-        setMessages((prevMessages) => [...prevMessages, aiResponse]);
+      const data = await response.json();
+      const aiResponse = { author: 'ai', text: data.choices[0].message.content, typingCompleted: false };
+      setMessages((prevMessages) => [...prevMessages, aiResponse]);
     } catch (error) {
-        console.error('Error sending message:', error);
-        setMessages((prevMessages) => [
-            ...prevMessages,
-            { author: 'ai', text: "I'm having trouble connecting to the server. Please try again later.", typingCompleted: true },
-        ]);
+      console.error('Error sending message:', error);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { author: 'ai', text: "I'm having trouble connecting to the server. Please try again later.", typingCompleted: true },
+      ]);
     }
-};
+  };
 
   const handleSendMessage = (query) => {
     sendMessage(query, 'user');
@@ -140,6 +140,7 @@ const App = () => {
             {messages.length === 0 && (
               <>
                 <header className="header">How can I help you today?</header>
+                <img src={jumbo} alt="Jumbo" className="jumbo-elephant" />
                 <div className="button-group">
                   <button
                     className="button"
@@ -174,7 +175,6 @@ const App = () => {
                     Campus facilities and resources availability
                   </button>
                 </div>
-                <img src={jumbo} alt="Jumbo" style={{ maxWidth: '125px', height: 'auto' }} />
               </>
             )}
             <div className="message-container">
