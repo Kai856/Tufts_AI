@@ -47,28 +47,28 @@ html, body {
 }
 
 .header {
-  font-size: 2.5rem;
+  font-size: 2.2rem; /* Slightly reduced font size */
   font-family: 'Times New Roman', Times, serif;
   color: #3E8EDE;
-  margin-top: 18vh; /* Increased margin to lower the header */
-  margin-bottom: 2rem;
+  margin-top: 12vh; /* Reduced margin to fit the header higher */
+  margin-bottom: 1rem; /* Adjusted spacing */
   text-align: center;
 }
 
 .jumbo-logo {
-  max-width: 150px;
+  max-width: 120px; /* Reduced size for better fit */
   height: auto;
-  margin-top: 5vh; /* Adds more space above the logo */
-  margin-bottom: 2rem; /* Space between the logo and button group */
+  margin-top: 2vh; /* Reduced margin above the logo */
+  margin-bottom: 1.5rem; /* Reduced spacing below the logo */
 }
 
 .button-group {
   display: grid;
   grid-template-columns: repeat(2, minmax(150px, 1fr));
-  gap: 1.5rem;
+  gap: 1rem;
   width: 100%;
-  max-width: 700px;
-  margin-top: 5vh; /* Adds more space above the buttons */
+  max-width: 600px;
+  margin-top: 2vh; /* Reduced space above the buttons */
   text-align: center;
 }
 
@@ -76,9 +76,9 @@ html, body {
   background-color: #2C2C2E;
   color: #FFFFFF;
   border: 1px solid #525252;
-  padding: 1rem;
+  padding: 0.8rem; /* Slightly reduced padding */
   border-radius: 0.8rem;
-  font-size: 1rem;
+  font-size: 0.95rem; /* Slightly smaller font size */
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
   opacity: 0;
@@ -131,8 +131,8 @@ html, body {
   background-color: transparent;
   border: none;
   color: #3E8EDE;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem; /* Slightly reduced width */
+  height: 2.5rem; /* Slightly reduced height */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -147,48 +147,27 @@ html, body {
   transform: scale(1.1);
 }
 
-.message-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  height: calc(100vh - 250px); /* Adjust height to fit all elements comfortably */
-  overflow-y: auto;
-  padding-top: 50px;
-  padding-bottom: 100px;
-}
-
-.message {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #333;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 18px;
-  margin: 10px;
-}
-
 /* Media Queries for Responsive Adjustments */
 @media (max-width: 768px) {
   .header {
-    font-size: 2rem;
-    margin-top: 15vh; /* Adjusted for smaller screens */
+    font-size: 1.8rem;
+    margin-top: 10vh; /* Adjusted for smaller screens */
   }
 
   .jumbo-logo {
     max-width: 100px;
-    margin-top: 4vh; /* Adjusted for smaller screens */
+    margin-top: 3vh; /* Adjusted for smaller screens */
   }
 
   .button-group {
     grid-template-columns: 1fr;
     gap: 1rem;
-    margin-top: 4vh; /* Adjusted for smaller screens */
+    margin-top: 2vh; /* Adjusted for smaller screens */
   }
 
   .button {
     font-size: 0.9rem;
-    padding: 0.8rem;
+    padding: 0.7rem;
   }
 
   .input-box-container {
@@ -198,11 +177,11 @@ html, body {
 
 @media (min-width: 1024px) {
   .header {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .jumbo-logo {
-    max-width: 150px;
+    max-width: 120px;
   }
 
   .button-group {
@@ -221,3 +200,4 @@ html, body {
   max-width: 125px;
   height: auto;
 }
+
