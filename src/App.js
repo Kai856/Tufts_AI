@@ -141,6 +141,7 @@ const App = () => {
             {messages.length === 0 && (
               <>
                 <header className="header">How can I help you today?</header>
+                <img src={jumbo} alt="Jumbo" className="jumbo-logo" />
                 <div className="button-group">
                   <button
                     className="button"
@@ -175,9 +176,9 @@ const App = () => {
                     Campus facilities and resources availability
                   </button>
                 </div>
-                <img src={jumbo} alt="Jumbo" style={{ maxWidth: '125px', height: 'auto' }} />
               </>
             )}
+
             <div className="message-container">
               {messages.map((msg, index) => (
                 <div key={index} className={`message ${msg.author}`}>
