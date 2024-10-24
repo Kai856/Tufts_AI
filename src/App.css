@@ -1,21 +1,22 @@
 :root {
-  --background-color: #2C2C2E; /* Dark background color */
+  --background-color: #ffffff;
   --user-message-color: #F0F0F0;
   --ai-message-color: #E0E0E0;
   --button-color: #3E8EDE;
-  --button-hover-color: #444444;
-  --text-color: #FFFFFF;
+  --button-hover-color: #2C2C2E;
+  --text-color: #000000;
   --placeholder-color: #757575;
 }
 
 .page {
-  background-color: var(--background-color); /* Set background to dark */
+  background-color: var(--background-color); /* This will be your default background now */
   transition: background-color 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #2C2C2E;
   color: #FFFFFF;
   font-family: 'Arial, sans-serif';
   margin: 0;
@@ -26,20 +27,26 @@
 
 .top-banner {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 1rem;
-  background-color: #3A3A3C;
-  color: #ffffff;
+  font-size: 1rem; /* Or whatever size you prefer */
+  background-color: #3A3A3C; /* A natural step up from the main background */
+  color: #ffffff; /* Keep the text white for contrast */
   padding: 15px 0;
   text-align: center;
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 999;
+  /* Add any other styling you need */
 }
 
 .top-banner a {
-  color: #3E8EDE;
-  text-decoration: none;
+  color: #3E8EDE; /* The desired blue color for "Learn more" */
+  text-decoration: none; /* Optional: removes the underline from links */
+}
+
+.jumbo-elephant {
+  margin: 2rem 0; /* Adjust margin to control spacing */
+  display: block; /* Ensure it's a block-level element */
 }
 
 .header {
@@ -54,45 +61,62 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(150px, 1fr));
   gap: 1rem;
-  margin-top: 23vh;
+  margin-top: 2rem; /* Adjust the margin to align properly */
   width: 100%;
   max-width: 700px;
   text-align: center;
 }
 
 .button {
-  background-color: #444444;
-  color: #FFFFFF;
-  border: 1px solid #525252;
+  background-color: #2C2C2E; /* A darker gray that fits the theme */
+  color: #FFFFFF; /* White text for readability */
+  border: 1px solid #525252; /* A slightly lighter border for subtle contrast */
   padding: 1rem;
   border-radius: 0.8rem;
   text-align: left;
   font-size: 1rem;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  opacity: 0;
+  opacity: 0; /* Initially hide the buttons */
   animation: fadeInUp 0.5s ease-out forwards;
 }
 
-.button:nth-of-type(1) { animation-delay: 0.1s; }
-.button:nth-of-type(2) { animation-delay: 0.2s; }
-.button:nth-of-type(3) { animation-delay: 0.3s; }
-.button:nth-of-type(4) { animation-delay: 0.4s; }
+.button:nth-of-type(1) {
+  animation-delay: 0.1s; /* Delay for the first button */
+}
+
+.button:nth-of-type(2) {
+  animation-delay: 0.2s; /* Delay for the second button */
+}
+
+.button:nth-of-type(3) {
+  animation-delay: 0.3s; /* Delay for the third button */
+}
+
+.button:nth-of-type(4) {
+  animation-delay: 0.4s; /* Delay for the fourth button */
+}
 
 .button:hover {
-  transform: scale(1.05);
-  background-color: #525252;
+  transform: scale(1); /* For a subtle grow effect on hover */
+  background-color: #444444; /* Slightly lighter background on hover */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .input-box-container {
   position: fixed;
-  bottom: 3vh;
+  bottom: 3vh; /* Raise the search box higher by reducing the bottom value */
   left: 50%;
   transform: translateX(-50%);
   width: 45%;
@@ -103,18 +127,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #3A3A3C;
-  padding: 0.5rem 1rem;
+  background-color: #2C2C2E; /* Match the background color */
+  padding: 0.5rem 1rem; /* Reduced vertical padding to make the bar less tall */
   border-radius: 22px;
   width: 100%;
-  border: 1px solid #525252;
+  border: 1px solid #706f6f; /* White border as requested */
 }
 
 .input {
   flex: 1;
   background-color: transparent;
   border: none;
-  color: #E0E0E0;
+  color: #E0E0E0; /* Light text color for high contrast */
   margin-right: 1rem;
   font-size: 1rem;
   outline: none;
@@ -125,15 +149,22 @@
   border: none;
   color: #3E8EDE;
   width: 3rem;
-  height: 3rem;
+  height: 45px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.5rem;
   font-size: 2rem;
   border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
   position: relative;
   overflow: hidden;
+}
+
+.send-button:hover {
+  background-color: #444;
+  transform: scale(1.1);
 }
 
 .top-left-logo {
@@ -148,26 +179,32 @@
   height: auto;
 }
 
-.message {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .chat-active .message-container {
   overflow-y: auto;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  overflow-y: auto;
   height: calc(100vh - 120px);
   padding-top: 100px;
   padding-bottom: 80px;
 }
 
 .chat-active .message {
-  background-color: #333333;
+  background-color: #333;
   color: white;
   padding: 8px 16px;
   border-radius: 18px;
   margin: 10px;
+}
+
+.chat-active .input-box-container {
+  width: 100%;
+  max-width: 600px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: #2C2C2E;
 }
