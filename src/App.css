@@ -12,7 +12,7 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 16px; /* Set the base font size for scaling */
+  font-size: 16px;
 }
 
 .page {
@@ -28,7 +28,6 @@ html, body {
   background-color: #2C2C2E;
 }
 
-/* Top Banner Styling */
 .top-banner {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
@@ -47,7 +46,6 @@ html, body {
   text-decoration: none;
 }
 
-/* Header and Greetings */
 .greeting, .header {
   font-size: 2.5rem;
   font-weight: bold;
@@ -62,7 +60,6 @@ html, body {
   color: #3E8EDE;
 }
 
-/* Button Group Styling */
 .button-group {
   display: grid;
   grid-template-columns: repeat(2, minmax(150px, 1fr));
@@ -70,7 +67,9 @@ html, body {
   width: 100%;
   max-width: 700px;
   text-align: center;
-  margin-top: 35vh;
+  margin-top: 10vh;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .button {
@@ -86,25 +85,24 @@ html, body {
   animation: fadeInUp 0.5s ease-out forwards;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .button-group {
     grid-template-columns: 1fr;
-    margin-top: 20vh;
+    margin-top: 5vh;
   }
   .header {
     font-size: 1.5rem;
   }
 }
 
-/* Message Container */
 .message-container {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 180px);
   overflow-y: auto;
-  padding-top: 100px;
-  padding-bottom: 80px;
+  padding-top: 50px;
+  padding-bottom: 100px;
 }
 
 .message {
@@ -118,11 +116,6 @@ html, body {
   margin: 10px;
 }
 
-.message.user, .message.ai {
-  font-size: 1.1rem;
-}
-
-/* Input Box */
 .input-box-container {
   width: 100%;
   max-width: 600px;
@@ -154,7 +147,6 @@ html, body {
   outline: none;
 }
 
-/* Send Button */
 .send-button {
   background-color: transparent;
   border: none;
@@ -175,38 +167,6 @@ html, body {
   transform: scale(1.1);
 }
 
-@media (max-width: 600px) {
-  .input-box-container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .input-box-container {
-    max-width: 70%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .input-box-container {
-    max-width: 50%;
-  }
-}
-
-/* Logo Styles */
-.top-left-logo {
-  position: absolute;
-  top: 3.5rem;
-  left: 1rem;
-  z-index: 1000;
-}
-
-.top-left-logo img {
-  max-width: 100px;
-  height: auto;
-}
-
-/* Keyframes for Button Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -218,3 +178,14 @@ html, body {
   }
 }
 
+.top-left-logo {
+  position: absolute;
+  top: 3.5rem;
+  left: 1rem;
+  z-index: 1000;
+}
+
+.top-left-logo img {
+  max-width: 100px;
+  height: auto;
+}
