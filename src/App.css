@@ -1,14 +1,4 @@
-:root {
-  --background-color: #ffffff;
-  --user-message-color: #F0F0F0;
-  --ai-message-color: #E0E0E0;
-  --button-color: #3E8EDE;
-  --button-hover-color: #2C2C2E;
-  --text-color: #000000;
-  --placeholder-color: #757575;
-}
-
-:root {
+App;:root {
   --background-color: #ffffff;
   --user-message-color: #F0F0F0;
   --ai-message-color: #E0E0E0;
@@ -35,6 +25,7 @@
   position: relative;
 }
 
+
 .top-banner {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1rem; /* Or whatever size you prefer */
@@ -54,12 +45,24 @@
   text-decoration: none; /* Optional: removes the underline from links */
 }
 
+.jumboAI {
+  /* If you had position:absolute here, remove it */
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #3E8EDE;
+}
+.jumbo-logo-container {
+  position: relative; /* Adjust if needed - or remove if using flexbox */
+  z-index: 10; /* Ensure logo overlays any elements below if necessary */
+}
+
 .greeting {
   font-size: 4rem;
   font-weight: bold;
   color: #3F51B5;
   margin: 0;
   margin-bottom: 1rem;
+  /* Remove position:absolute if it exists */
 }
 
 .header {
@@ -68,6 +71,7 @@
   color: #3E8EDE;
   margin: 0;
   margin-bottom: 2rem;
+  /* Remove position:absolute if it exists */
 }
 
 .button-group {
@@ -80,6 +84,7 @@
   text-align: center;
   margin-left: 30px; /* Adjust the value to move the boxes to the right */
   margin-top: 35vh;
+
 }
 
 .button {
@@ -94,6 +99,7 @@
   transition: transform 0.3s ease, background-color 0.3s ease;
   opacity: 0; /* Initially hide the buttons */
   animation: fadeInUp 0.5s ease-out forwards;
+
 }
 
 .button:nth-of-type(1) {
@@ -113,7 +119,7 @@
 }
 
 .button:hover {
-  transform: scale(1.05); /* For a subtle grow effect on hover */
+  transform: scale(1); /* For a subtle grow effect on hover */
   background-color: #444444; /* Slightly lighter background on hover */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -128,14 +134,16 @@
     transform: translateY(0);
   }
 }
-
 .input-box-container {
   position: fixed;
   bottom: 3vh; /* Raise the search box higher by reducing the bottom value */
   left: 50%;
   transform: translateX(-50%);
   width: 45%;
+  max-width: none;
 }
+
+
 
 .input-box {
   display: flex;
@@ -176,11 +184,37 @@
   overflow: hidden; /* Prevents the hover background from spilling out */
 }
 
+.send-button::before {
+  content: '';
+  background-color: #333; /* Dark background for the hover effect */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0); /* Starts scaled down to zero */
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s, background-color 0.3s; /* Smooth transition for transform */
+  z-index: -1;
+}
+
+.send-button:hover {
+  background-color: #444; /* Slightly lighter color on hover */
+  transform: scale(1.1); /* The button grows a bit on hover */
+}
+
+.send-button > svg {
+  width: 1.5rem; /* Icon width */
+  height: 1.5rem; /* Icon height */
+  z-index: 1; /* Ensures the icon is above the pseudo-element */
+}
+
 .top-left-logo {
   position: absolute;
   top: 3.5rem; /* Adjust if needed to ensure the logo sits below the top banner */
   left: 1rem; /* Left padding from the edge of the screen */
   z-index: 1000; /* Ensure it sits above other page elements */
+  
 }
 
 .top-left-logo img {
@@ -188,3 +222,116 @@
   height: auto; /* Maintain the aspect ratio of the logo */
 }
 
+.tufts-logo {
+  max-width: 150px; /* Adjust based on your preference */
+  height: auto; /* This will maintain the aspect ratio */
+}
+
+.top-left-logo { order: 2; } 
+.button-group { order: 1; } 
+
+
+.message {
+  display: flex;
+  align-items: center; /* Ensures vertical alignment is centered */
+  gap: 10px; /* Provides some space between the logo and the text */
+}
+
+.message-text {
+  flex: 1; /* Allows text to fill the remaining space */
+  color: var(--text-color); /* Using your root variable for text color */
+  margin: 0; /* Resets any default margins */
+}
+
+
+.user-indicator {
+  width: 20px; 
+  height: 20px;  
+  border-radius: 50%; 
+  background-color: #cccccc; 
+  margin-right: 5px;  /* Adjust margin as needed */
+  margin-top: 5px;  /* Add margin-top to move up */
+  margin-left: 10px; /* Add margin-left to move left */
+}
+
+.gpt-indicator {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;  /* Adjust margin as needed */
+  margin-top: 5px;  /* Add margin-top to move up */
+  display: inline-block; /* Not strictly necessary with Flexbox */
+}
+
+.gpt-indicator img {
+  width: 100%;
+  height: 100%;
+}
+
+.message.user, .message.ai {
+  background: transparent;
+  font-size: 1.1rem; /* Adjust font size here */
+}
+
+.chat-active .message-container {
+  overflow-y: auto; /* This allows the container to scroll */
+  width: 100%;
+  max-width: 600px; /* Adjust width as needed */
+  margin: 0 auto; /* Center the container */
+  overflow-y: auto; /* Allow scrolling */
+  height: calc(100vh - 120px); /* Adjust height as needed */
+  padding-top: 100px; /* Adjust this value to move messages down */
+  padding-bottom: 80px; /* Space for input box */
+}
+
+.chat-active .message {
+  background-color: #333; /* Example message bubble color */
+  color: white; /* Example message text color */
+  padding: 8px 16px; /* Padding inside message bubbles */
+  border-radius: 18px; /* Rounded corners for message bubbles */
+  margin: 10px;
+  /* Additional styles for message bubbles */
+}
+
+.chat-active .input-box-container {
+  width: 100%;
+  max-width: 600px; /* Match the width of the message container */
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: #2C2C2E; /* Example background color */
+}
+.avatar, .gpt-indicator img {
+  width: 30px; 
+  height: auto; 
+  margin-right: 10px; 
+}
+
+.chat-elephant-icon {
+  height: 20px; /* Adjust to fit your design */
+  width: auto; /* Maintain aspect ratio */
+  margin-right: 8px; /* Space between icon and text */
+  align-self: center; /* Align vertically */
+}
+
+
+
+
+
+
+.colored-text {
+  color: #E0E0E0; /* Light text color for high contrast */
+}
+
+.colored-text.blue {
+  color: #3E8EDE; /* Light purple color for accent */
+}
+
+.colored-text.purple {
+  color: #3E8EDE; /* Change the class color to blue */
+}
+
+.colored-text.red {
+  color: #FF4081; /* Pinkish-red for contrast */
+}
